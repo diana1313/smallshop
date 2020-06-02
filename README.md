@@ -1,2 +1,0 @@
-# smallshop
-api
