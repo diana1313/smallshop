@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 @Entity
 class Product implements Serializable {
@@ -18,12 +17,12 @@ class Product implements Serializable {
     private String name;
 
     @Column
-    private BigDecimal price;
+    private int price;
 
     Product() {
     }
 
-    Product(String name, BigDecimal price) {
+    Product(String name, int price) {
         this.name = name;
         this.price = price;
     }
