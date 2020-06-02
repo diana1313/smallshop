@@ -1,7 +1,7 @@
 package com.epam.demoapi.smallshop.repo;
 
-import com.epam.demoapi.smallshop.domain.Order;
-import org.springframework.data.repository.CrudRepository;
+import com.epam.demoapi.smallshop.domain.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends CrudRepository<Order, Integer> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 }

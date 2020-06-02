@@ -1,15 +1,12 @@
 package com.epam.demoapi.smallshop.services;
 
-import com.epam.demoapi.smallshop.repo.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.epam.demoapi.smallshop.domain.Product;
+import com.epam.demoapi.smallshop.dto.ProductDto;
 
-@Service
-public class ProductService {
-    private ProductRepository productRepository;
+import java.util.List;
 
-    @Autowired
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+public interface ProductService {
+    Product createProduct(ProductDto product);
+    List<Product> getProducts();
+    Product getProduct(Integer id);
 }
