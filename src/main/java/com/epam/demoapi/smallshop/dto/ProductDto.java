@@ -1,6 +1,5 @@
 package com.epam.demoapi.smallshop.dto;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 

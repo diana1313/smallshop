@@ -21,15 +21,23 @@ public class TestClass {
 
     @PostConstruct
     public void test() {
-        productRepository.save(Product.builder().name("burger").price(10).build());
-        productRepository.save(Product.builder().name("fries").price(15).build());
+        productRepository.save(Product.builder().name("burger").price(15).build());
+        productRepository.save(Product.builder().name("fries").price(10).build());
+        productRepository.save(Product.builder().name("coke").price(5).build());
+        productRepository.save(Product.builder().name("ice-cream").price(10).build());
 
         List<OrderedProduct> orderedProducts = Arrays.asList(
-                new OrderedProduct(1, 3),
-                new OrderedProduct(2, 4)
+                new OrderedProduct(1, 2),
+                new OrderedProduct(2, 3),
+                new OrderedProduct(3, 4)
+        );
+        List<OrderedProduct> orderedProducts2 = Arrays.asList(
+                new OrderedProduct(2, 2),
+                new OrderedProduct(4, 5)
         );
 
         orderService.createOrder(orderedProducts);
+        orderService.createOrder(orderedProducts2);
 
         int i = 2; //line for a breakpoint
     }

@@ -4,11 +4,7 @@ import com.epam.demoapi.smallshop.domain.Product;
 import com.epam.demoapi.smallshop.dto.ProductDto;
 import com.epam.demoapi.smallshop.services.ProductService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,12 +16,12 @@ public class ProductResource {
 
     @GetMapping
     public List<Product> getProducts() {
-        return null; //TODO implement
+        return productService.getProducts();
     }
 
     @PostMapping
     public Product createProduct(ProductDto productDto) {
-        return null;  //TODO implement
+        return productService.createProduct(productDto);
     }
 
     @GetMapping("/{productId}")

@@ -15,12 +15,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(ProductDto product) {
-        return null; //TODO implement
+        return productRepository.save(
+                Product.builder()
+                        .name(product.getName())
+                        .price(product.getPrice())
+                        .build());
     }
 
     @Override
     public List<Product> getProducts() {
-        return null; //TODO implement
+        return productRepository.findAll();
     }
 
     @Override
