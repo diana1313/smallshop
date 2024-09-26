@@ -1,30 +1,27 @@
 package com.epam.demoapi.smallshop.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+@Entity(name = "Orders")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Order implements Serializable {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    @CollectionTable
-    //Not sure about mapping - but seem to be correct :D
-    private List<Product> produts;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Product> products;
 
-    @Column
-    private int totalPrice;
+    @Column(nullable = false)
+    private Integer totalPrice;
 
-    public Order(Integer id, List<Product> produts) {
-        this.id = id;
-        this.produts = produts;
-    }
-
-    public int countTotalPrice(List <Product> products){
-        // Have no idea where to put quantity of products ???
-        // Therefore no way to count the total price ¯\_(ツ)_/¯
-        return 0;
-    }
 }

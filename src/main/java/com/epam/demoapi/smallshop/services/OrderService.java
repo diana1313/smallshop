@@ -1,18 +1,14 @@
 package com.epam.demoapi.smallshop.services;
 
-import com.epam.demoapi.smallshop.repo.OrderRepository;
-import com.epam.demoapi.smallshop.repo.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.epam.demoapi.smallshop.domain.Order;
+import com.epam.demoapi.smallshop.dto.OrderedProduct;
 
-@Service
-public class OrderService {
-    private OrderRepository orderRepository;
-    private ProductRepository productRepository;
+import java.util.List;
 
-    @Autowired
-    public OrderService(OrderRepository orderRepository, ProductRepository productRepository) {
-        this.orderRepository = orderRepository;
-        this.productRepository = productRepository;
-    }
+public interface OrderService {
+    Order createOrder(List<OrderedProduct> orderedProductDtos);
+
+    List<Order> getOrders();
+
+    Order getOrder(Integer id);
 }
